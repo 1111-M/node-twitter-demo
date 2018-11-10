@@ -1,4 +1,6 @@
 {
-  "consumerKey": "HXbko8Zv9sLVIMMMhKmgXQ"
-, "consumerSecret": "LoOc0eKtZ0HMi7wsHT84KYIzVhfPoprHx898uSTBbo"
+  "consumerKey": "process.env.CONSUMER_KEY"
+, "consumerSecret": "process.env.CONSUMER_SECRET"
+,  "accesstoken": "process.env.ACCESS_TOKEN"
+, "accesstokensecret": "process.env.ACCESS_TOKEN_SECRET"
 }
