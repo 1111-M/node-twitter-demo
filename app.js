@@ -19,7 +19,7 @@ var express = require('express')
   , twitterAuthn
   , twitterAuthz
   // poor man's database stub
-  , user = { id: "abc" }
+  , user = { id: "mchabits85" }
   // oauth / twitter stuff
   , OAuth= require('oauth').OAuth
   , oa
@@ -37,15 +37,6 @@ function initTwitterOauth() {
   );
 }
 
-function makeTweet(cb) {
-  oa.post(
-    "https://api.twitter.com/1.1/statuses/update.json"
-  , user.token
-  , user.tokenSecret
-  , {"status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
-  , cb
-  );
-}
 
 function makeDm(sn, cb) {
   oa.post(
@@ -150,17 +141,7 @@ app.get(
     }
   )
 );
-app.get('/twitter/tweet', function (req, res) {
-  makeTweet(function (error, data) {
-    if(error) {
-      console.log(require('sys').inspect(error));
-      res.end('bad stuff happened');
-    } else {
-      console.log(data);
-      res.end('go check your tweets!');
-    }
-  });
-});
+
 app.get('/twitter/direct/:sn', function (req, res) {
   makeDm(req.params.sn, function (error, data) {
     if(error) {
